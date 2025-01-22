@@ -24,7 +24,7 @@
 2. Navigate to the project directory:
 cd To-Do
 
-3.Open the index.html file in your browser to start the application.
+3. Open the index.html file in your browser to start the application.
 
 Usage
 
