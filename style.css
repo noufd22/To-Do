@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+/* .container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+} */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.todo-app h2, .note-app h2 {
+    display: flex; /* تفعيل flexbox */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    color: #002765;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img , .note-app h2 img{
+    width: 70px;
+    margin-right: 10px; /* إضافة مسافة بين الصورة والنص */
+    margin-top: 0; /* إزالة أي مسافة زائدة من الأعلى */
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px ;
+    font-weight: 14px;
+}
+
+/* button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color:#fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+} */
+
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+button:hover {
+    box-shadow: 0 4px 20px rgba(255, 89, 69, 0.6); /* توهج الظل */
+}
+
+button:hover::before {
+    opacity: 1;
+    width: 400%;
+    height: 400%;
+}
+
+
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+
+ul li::before {
+    content: '';
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(/media/round.png);
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px; 
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+background-image: url(/media/checked.png);
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+ul li span:hover{
+    background: #edeef0;
+}
+
+
+
+.stats {
+    font-size: 18px;
+    font-weight: bold;
+    color: #dab239;
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    /* align-items: center; */
+}
+
+.stat-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.stat-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+
+
+.note-toolbar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.note-toolbar button {
+    background: #4e085f;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.note-toolbar button:hover {
+    background: #dab239;
+}
+
+/* .note-box {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    overflow-y: auto;
+} */
+
+.note-box {
+    width: 100%; /* يغطي عرض الحاوية بالكامل */
+    height: calc(100% - 50px); /* يتكيف مع ارتفاع الحاوية مع خصم المساحة المخصصة للعناصر الأخرى */
+    border: 1px solid #ddd; /* حدود */
+    padding: 15px; /* مسافة داخلية */
+    font-size: 16px; /* حجم النص */
+    border-radius: 8px; /* حواف دائرية */
+    background: #f9f9f9; /* خلفية خفيفة */
+    overflow-y: auto; /* إضافة شريط تمرير عند الحاجة */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل داخلي */
+}
+
+.note-app {
+    width: 100%;
+    max-width: 400px; /* عرض الحاوية */
+    background: #fff;
+    margin: 100px auto 20px; /* مسافات من الأعلى والأسفل */
+    padding: 30px; /* حواف داخلية */
+    border-radius: 10px; /* حواف دائرية */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل */
+    display: flex; /* لتسهيل التحكم بالداخل */
+    flex-direction: column; /* ترتيب العناصر بشكل عمودي */
+    gap: 10px; /* مسافة بين العناصر */
+}
+
+.todo-app p {
+    font-family: 'Brush Script MT', 'Brush Script Std', 'cursive';	
+    /* font-family: 'Cursive', 'Poppins', sans-serif;  */
+    font-size: 20px; /* حجم الخط */
+    font-weight: bold; /* لجعل النص بارزًا */
+    color: #4e085f; /* لون النص ليكون متناسقًا مع الخلفية */
+    text-align: center; /* لمحاذاة النص إلى المركز */
+    margin-bottom: 20px; /* مسافة من الأسفل لتوفير تباعد */
+    /* text-shadow: 2px 2px; */
+    /* text-shadow: 0 0 3px #FF0000; */
+    text-shadow: 2px 2px 5px #ff5945;
+    opacity: 0.7; /* مستوى الشفافية (80% غير شفاف) */
+
+
+}
+
+
+
+
+
+
+
+
+
+
