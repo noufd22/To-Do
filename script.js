@@ -59,9 +59,9 @@ function updateStats() {
 // }
 
 document.getElementById("stats").innerHTML = `
-    <span class="stat-item"><img src="/media/total.png" class="stat-icon"> Total: ${totalTasks}</span><br>
-    <span class="stat-item"><img src="/media/completed.png" class="stat-icon"> Completed: ${completedTasks}</span><br>
-    <span class="stat-item"><img src="/media/pending.png" class="stat-icon"> Pending: ${pendingTasks}</span>
+    <span class="stat-item"><img src="media/total.png" class="stat-icon"> Total: ${totalTasks}</span><br>
+    <span class="stat-item"><img src="media/completed.png" class="stat-icon"> Completed: ${completedTasks}</span><br>
+    <span class="stat-item"><img src="media/pending.png" class="stat-icon"> Pending: ${pendingTasks}</span>
 `;
 }
 
